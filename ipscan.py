@@ -2,7 +2,9 @@ import time
 import nmap
 from m_mysql import *
 import json
-my=mysql('172.17.21.156','root','wtt@564','mb',3306)
+from mysql_conf import *
+
+my=mysql(host,user,password,database,port)
 def portscan():
 	ipaddr= my.select('select ipdir,id from polls_task;')
 	tempip=[]
