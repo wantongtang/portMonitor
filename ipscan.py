@@ -18,6 +18,7 @@ def portscan():
 		taskinfo=my.select('SELECT white_port,id FROM `polls_task` WHERE ipdir="%s"'%(host))
 		whiteport=taskinfo[0]['white_port'].split(',')
 		taskid=taskinfo[0]['id']
+                my.query("DELETE FROM `polls_result` WHERE `polls_result`.`id` = %d;"%(taskid))
 		insertinfo=[]
 		for proto in nm[host].all_protocols():
 			lport=nm[host][proto].keys()
@@ -33,4 +34,3 @@ def portscan():
 		my.query("UPDATE `polls_task` SET `state` = '1' WHERE `polls_task`.`id` = %d;"%(taskid))
 
 	my.close()
-
