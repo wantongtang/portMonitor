@@ -1,8 +1,15 @@
 # 端口监控
 # mysql支持
 
-## 1 创建mysql表
-## 2 配置修改mysql_conf.py 文件配置
+## 1 导入mysql表，mb.sql
+## 2 配置修改mysql_conf.py 文件配置,你的mysql用户名，密码这些，我的如下:
+        #mysql_conf.py 
+        host='172.17.21.156'
+        user='root'
+        password='*****'
+        port=3306
+        database='mb'
+
 ## 3 运行 python myscan.py start  开始之后会一直监控
 ## 4 停止：python myscan.py stop
 ### (after started it will create a daemon,do not need to stop it normally)
