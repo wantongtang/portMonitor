@@ -13,7 +13,7 @@ def portscan():
 	iptoscan= '\n'.join(tempip)
 
 	nm=nmap.PortScanner()
-	nmresult= nm.scan(hosts=iptoscan,arguments='-p-  -sV -sS -T4')
+	nm.scan(hosts=iptoscan,arguments='-p-  -sV -sS -T4')
 	for host in nm.all_hosts():
 		taskinfo=my.select('SELECT white_port,id FROM `polls_task` WHERE ipdir="%s"'%(host))
 		whiteport=taskinfo[0]['white_port'].split(',')
