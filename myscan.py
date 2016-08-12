@@ -149,6 +149,7 @@ class MyDaemon(Daemon):
             time.sleep(60)
             try:
                 portscan()
+		time.sleep(4)
             except:
                 pass
 
